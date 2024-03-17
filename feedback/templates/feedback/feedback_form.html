@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Feedback Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1, p {
+            color: #333;
+        }
+        .rating input[type="radio"] {
+            display: none;
+        }
+        .rating label {
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .rating input[type="radio"]:checked + label {
+            background-color: #9ACD32; /* Yellow-green color */
+            color: white;
+        }
+        input[type="text"], input[type="tel"], button[type="submit"] {
+            margin-top: 10px;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+        button[type="submit"] {
+            background-color: #9ACD32; /* Yellow-green color */
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Thank you for dining with us at Andheri East!</h1>
+    <p>Please take a moment to share your feedback of your experience with us. It will help us serve you better.</p>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>How would you rate your overall food experience?</p>
+        <fieldset class="rating">
+            <input type="radio" id="excellent" name="food_rating" value="excellent">
+            <label for="excellent">Excellent</label>
+            <input type="radio" id="good" name="food_rating" value="good">
+            <label for="good">Good</label>
+            <input type="radio" id="average" name="food_rating" value="average">
+            <label for="average">Average</label>
+            <input type="radio" id="bad" name="food_rating" value="bad">
+            <label for="bad">Bad</label>
+        </fieldset>
+
+        <p>How Likely are you to recommend our service to a friend or colleague?</p>
+        <fieldset class="rating">
+            <input type="radio" id="very_likely" name="recommendation" value="10">
+            <label for="very_likely">10 - Extremely Likely</label>
+            <input type="radio" id="likely" name="recommendation" value="9">
+            <label for="likely">9</label>
+            <input type="radio" id="neutral" name="recommendation" value="5">
+            <label for="neutral">5 - Neutral</label>
+            <input type="radio" id="unlikely" name="recommendation" value="1">
+            <label for="unlikely">1 - Not Likely at all</label>
+        </fieldset>
+
+        <p>Your name (Optional)</p>
+        <input type="text" name="name" placeholder="Your Name">
+
+        <p>Your mobile number (Optional)</p>
+        <input type="tel" name="mobile_number" placeholder="Your Mobile Number">
+
+        <button type="submit">SUBMIT</button>
+    </form>
+</body>
+</html>
